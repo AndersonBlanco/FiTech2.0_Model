@@ -14,7 +14,7 @@ import tkinter
 
 #print(os.path.isfile("./punchClassification.keras"))
 
-GRU1 = tf.keras.models.load_model("./ChainedGRU_Arch/punchClassification.keras")#('GRU2.keras')
+GRU1 = tf.keras.models.load_model("ChainedGRU_Arch/CHAINED_MODEL.keras")#('GRU2.keras')
 root = tkinter.Tk()
 monitorResolution = (root.winfo_screenheight()+100, root.winfo_screenheight()-200) 
 
@@ -36,13 +36,13 @@ val_pred = ["good jab", "bad jab - knee level lack",
             "good kick", "bad kick, don't lounge leg out"]
 
 val_punchClassification_labels = ['jab', 'straightRight', 'upperCut', 'hook', 'rest']
-
+chained_model_labels = ["jab_lack_of_rotation", "jab_correct", "straight_right_lack_of_rotation", "straight_right_correct", "rest_bad_stance", "rest_correct" ]
 def label_punchClassification(angles):
     pred_y = np.array(GRU1.predict(angles))
     #print("ANGLES:", angles)
     #print("PREDICTION: ", pred_y)
     idx = pred_y[0].argmax(axis = 0)
-    p = val_punchClassification_labels[idx]
+    p = chained_model_labels[idx]
     print("Prediciton label: ", p)
     print("Raw prediction hot-on eencoding: ", pred_y[0])
     return p

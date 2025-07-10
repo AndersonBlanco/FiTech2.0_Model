@@ -351,6 +351,9 @@ CHAINED_MODEL.save("CHAINED_MODEL.keras")
 punchCalssification_model.save_weights("./CHAINED_MODEL.weights.h5")
 print('model saved....')
 
+
+"""
 print('converting to coreml model file..')
-crmlModel = convertModel(CHAINED_MODEL, "./CHAINED_MODEL_coreml.mlpackage")
+crmlModel = convertModel(CHAINED_MODEL, './CHAINED_MODEL_coreml.mlpackage')
 print('coreml model file converted')
+"""

@@ -1,0 +1,12 @@
+.keras model file ending stats: 
+
+Epoch 24/25
+300/300 [==============================] - 1s 2ms/step - loss: 0.2660 - accuracy: 0.9183
+Epoch 25/25
+300/300 [==============================] - 1s 2ms/step - loss: 0.3245 - accuracy: 0.8983
+fitting complete..
+testing.....
+10/10 [==============================] - 0s 1ms/step - loss: 0.0264 - accuracy: 1.0000
+testing complete...
+saving model....
+
