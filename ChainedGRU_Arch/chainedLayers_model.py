@@ -18,7 +18,7 @@ def createModel():
     m = keras.Sequential([
     keras.layers.Input(shape=(40,8)),
     keras.layers.GRU(8, return_sequences=False), #units set to 40 due to there being a 40 frame input 
-    #keras.layers.Dropout(0.2), 
+    keras.layers.Dropout(0.1), 
     keras.layers.Dense(5,activation='sigmoid') # was keras.activations.leaky_relu
 ])
     return m 
@@ -29,8 +29,8 @@ punchCalssification_model = createModel()
     keras.layers.GRU(128, return_sequences=False), #units set to 40 due to there being a 40 frame input 
     keras.layers.Dense(4,activation='softmax')
 ])"""
-
-punchCalssification_model.compile(optimizer=keras.optimizers.SGD(learning_rate=1.0), loss =keras.losses.CategoricalCrossentropy(), metrics =['accuracy'])
+#keras.optimizers.SGD(learning_rate=1.0)
+punchCalssification_model.compile(optimizer='adam', loss =keras.losses.CategoricalCrossentropy(), metrics =['accuracy'])
 #print(punchCalssification_model.summary())
 
 

@@ -12,23 +12,24 @@ import winsound
 from vision import drawSkeleton
 import tkinter
 
+#print(os.path.isfile("./punchClassification.keras"))
 
 GRU1 = tf.keras.models.load_model("./ChainedGRU_Arch/punchClassification.keras")#('GRU2.keras')
-
 root = tkinter.Tk()
 monitorResolution = (root.winfo_screenheight()+100, root.winfo_screenheight()-200) 
 
 num_videos = 1
-cap = cv2.VideoCapture(0)
+
 #cap.set(cv2.CAP_PROP_FRAME_WIDTH, 2040)  # set camera as wide as possible
 #cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
-
 
 
 
 """val_to_pred = ["good jab", "bad jab - knee level lack", "bad jab - rotation lack",
                "good uppercut", "bad uppercut - rotation lack",
                "good resting", "bad resting", "good straight", "bad straight - lack of defence"]"""
+
+
 
 val_pred = ["good jab", "bad jab - knee level lack", 
             "good straight", "bad straight, lack of rotation"," good rest", "bad rest, wrong stance",
@@ -56,8 +57,7 @@ def label(angles):
     return val_pred[idx]
 
 
-
-
+cap = cv2.VideoCapture(0)
 counter = 0
 a = []
 statement = "Put whole body into frame"
